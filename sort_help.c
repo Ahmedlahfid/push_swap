@@ -6,50 +6,66 @@
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:29:41 by ahlahfid          #+#    #+#             */
-/*   Updated: 2025/01/09 18:02:56 by ahlahfid         ###   ########.fr       */
+/*   Updated: 2025/01/23 10:27:55 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_min(t_list *stack)
+int	find_min(t_list *stack)
 {
-    int min = *(int *)stack->content;
-    while (stack)
-    {
-        if (*(int *)stack->content < min)
-            min = *(int *)stack->content;
-        stack = stack->next;
-    }
-    return min;
+	int	min;
+
+	min = *(int *)stack->content;
+	while (stack)
+	{
+		if (*(int *)stack->content < min)
+			min = *(int *)stack->content;
+		stack = stack->next;
+	}
+	return (min);
 }
 
-void move_to_top(t_list **stack, int value)
+void	move_to_top(t_list **stack, int value)
 {
-    int pos = find_position(*stack, value);
-    int size = ft_lstsize(*stack);
+	int	pos;
+	int	size;
 
-    if (pos <= size / 2)
-        while (*(int *)(*stack)->content != value)
-            ra(stack); 
-    else
-        while (*(int *)(*stack)->content != value)
-            rra(stack);
+	pos = find_position(*stack, value);
+	size = ft_lstsize(*stack);
+	if (pos <= size / 2)
+		while (*(int *)(*stack)->content != value)
+			ra(stack);
+	else
+		while (*(int *)(*stack)->content != value)
+			rra(stack);
 }
 
-int find_position(t_list *stack, int value)
+int	find_position(t_list *stack, int value)
 {
-    int position = 0;
+	int	position;
 
-    while (stack != NULL)
-    {
-        if (*(int *)stack->content == value) // Compare the value at the current node
-            return position; // Return the current index if value is found
-        stack = stack->next; // Move to the next node
-        position++;
-    }
-
-    return -1; // Return -1 if the value is not found in the list
+	position = 0;
+	while (stack != NULL)
+	{
+		if (*(int *)stack->content == value)
+			return (position);
+		stack = stack->next;
+		position++;
+	}
+	return (-1);
 }
 
+int	*stack_to_tab(t_list *stack_a, int *tab)
+{
+	int	i;
 
+	i = 0;
+	while (stack_a)
+	{
+		tab[i] = *((int *)stack_a->content);
+		stack_a = stack_a->next;
+		i++;
+	}
+	return (tab);
+}

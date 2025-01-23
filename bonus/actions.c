@@ -6,11 +6,11 @@
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 16:30:21 by ahlahfid          #+#    #+#             */
-/*   Updated: 2025/01/23 10:23:01 by ahlahfid         ###   ########.fr       */
+/*   Updated: 2025/01/23 12:13:39 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	swap(t_list **stack)
 {

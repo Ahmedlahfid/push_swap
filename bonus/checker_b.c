@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 14:56:00 by ahlahfid          #+#    #+#             */
-/*   Updated: 2025/01/23 17:53:05 by ahlahfid         ###   ########.fr       */
+/*   Created: 2025/01/23 09:43:12 by ahlahfid          #+#    #+#             */
+/*   Updated: 2025/01/23 12:08:14 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	push_to_stack(t_list **stack, char **arg)
 {
@@ -92,38 +92,21 @@ void	*arg_checker(int ac, char **av)
 	return (split_args);
 }
 
-void	handle_sorting(t_list **stack_a, t_list **stack_b, int size)
-{
-	if (size == 2)
-		sort_two(stack_a);
-	else if (size == 3)
-		sort_three(stack_a);
-	else if (size == 4)
-		sort_four(stack_a, stack_b);
-	else if (size == 5)
-		sort_five(stack_a, stack_b);
-	else if (size >= 6 && size <= 500)
-		sort_large_stack(stack_a, stack_b);
-}
-
 int	main(int ac, char **av)
 {
-	t_list	*stack_b;
 	t_list	*stack_a;
+	t_list	*stack_b;
 	char	**args;
 
-	stack_b = NULL;
 	stack_a = NULL;
+	stack_b = NULL;
 	if (ac < 2)
 		return (0);
 	args = arg_checker(ac, av);
+	if (!args)
+		msg_err();
 	push_to_stack(&stack_a, args);
-	if (is_sorted(stack_a))
-	{
-		ft_lstclear(&stack_a, free);
-		return (0);
-	}
-	handle_sorting(&stack_a, &stack_b, ft_lstsize(stack_a));
+	check_instructions(&stack_a, &stack_b);
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);
 	return (0);
