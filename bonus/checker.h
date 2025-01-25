@@ -6,7 +6,7 @@
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 09:42:17 by ahlahfid          #+#    #+#             */
-/*   Updated: 2025/01/23 17:51:44 by ahlahfid         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:11:24 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	msg_err(void);
 
 void	msg_err(void);
 int		is_nbr(char *str);
-int		is_duplicated(char **num); // Update return type to int
+int		is_duplicated(char **num);
 void	free_split(char **split);
 ////////////////////////////////////////////////////////////////////
 

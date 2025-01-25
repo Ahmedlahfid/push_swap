@@ -6,7 +6,7 @@
 /*   By: ahlahfid <ahlahfid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 09:43:12 by ahlahfid          #+#    #+#             */
-/*   Updated: 2025/01/23 12:08:14 by ahlahfid         ###   ########.fr       */
+/*   Updated: 2025/01/25 14:05:29 by ahlahfid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,7 @@ void	*arg_checker(int ac, char **av)
 	split_args = ft_split(join_args, ' ');
 	free(join_args);
 	if (!split_args)
-	{
-		free_split(split_args);
 		msg_err();
-	}
 	i = 0;
 	while (split_args[i])
 	{
